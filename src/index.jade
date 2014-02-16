@@ -1,0 +1,427 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title Hello Ti
+
+    // build:css styles/styles.css
+    //- Check out 'src/bower_components/prism/themes/' for available themes
+    link(rel='stylesheet', type='text/css', href='bower_components/prism/themes/prism-tomorrow.css')
+    link(rel='stylesheet', type='text/css', href='styles/main.css')
+    link(rel='stylesheet', type='text/css', href='styles/ti.css')
+    // endbuild
+  body
+
+    article#main-article
+      section(data-bespoke-state='reveal')
+        h1 Hello Titanium
+        h3 타이타늄 시작하기
+        h5 rev.201402
+
+      section(data-bespoke-state='emphatic')
+        h2 이종은
+        h3 인디 개발자
+        ul.badge_list
+          li
+            | TiDev.kr(한국 타이타늄 사용자 모임) 운영
+          li 
+            | Titanium Certified Expert
+          li
+            | Titan
+          li
+            img(src='/tidev.png', class="badge")
+            &nbsp;
+            img(src='/tced.png', class="badge")
+            &nbsp;
+            img(src='/titans.png', class="badge")
+          li
+      section(data-bespoke-state='emphatic')
+        span.small_title 인사 나눠요~
+        h2 여러분은?
+        p 이름, Ti경험, JavaScript경험, 만들려고 하는 앱
+      section(data-bespoke-state='emphatic')
+        h2 강좌 내용
+        h3 첫째날 - 타이타늄의 이해
+        ol.lecture_list
+          li Javascript 이해
+          li Titanium UI & Alloy View
+          li Titanium UI & Alloy Controller
+          li Cross Platform
+          li Widget과 Module 사용하기
+      section(data-bespoke-state='emphatic')
+        h2 강좌 내용
+        h3 둘째날 - 앱 제작 실습
+        ol.lecture_list
+          li Alloy Model (MVC의 이해)
+          li BaaS란?
+          li App - 회원가입/로그인
+          li App - 글목록
+          li App - 글작성
+          li App - 사진 업로드
+
+      
+
+      section(data-bespoke-state='reveal')
+        h2 1. Javascript의 이해
+
+      - var  jsCnt = 0; jsTotal=11;
+      - var makeJsTitle = function(){ return 'Javascript의 이해 '+ (++jsCnt) + '/' + jsTotal };
+      section(data-bespoke-state='emphatic')
+        span.small_title= makeJsTitle()
+        h2. 비교 연산자 == vs ===
+        pre
+          code.language-javascript.
+            var one= 1, oneString = '1' , t = true;
+
+            console.log(one == oneString);
+            console.log(one == t);
+            console.log(oneString == t);
+
+            console.log(one === oneString);
+            console.log(one === t);
+            console.log(oneString === t);
+        a(data-bespoke-run)
+          | Run!
+
+      section(data-bespoke-state='emphatic')
+        span.small_title= makeJsTitle()
+        h2. 원시값의 복사
+        pre
+          code.language-javascript.
+            var p = 1;
+            var copyOfP = p;
+            p = 3;
+            console.log(copyOfP);
+
+            var myObject = {};
+            var copyOfMyObject = myObject;
+            myObject.foo = 'bar';
+            console.log(copyOfMyObject.foo);
+        a(data-bespoke-run)
+          | Run!
+
+      section(data-bespoke-state='emphatic')
+        span.small_title= makeJsTitle()
+        h2. 원시값의 비교
+        pre
+          code.language-javascript.
+            var p1 = 10;
+            var p2 = 10;
+            var p3 = new Number('10');
+            var p3_1 = Number('10');
+            var p4 = p3;
+
+            console.log(p1 === p2);
+            console.log(p1 === p3);
+            console.log(p3_1 === p3);
+            console.log(p1 === p3_1);
+            p4=10;
+            console.log(p4 === p3);
+        a(data-bespoke-run)
+          | Run!
+
+      section(data-bespoke-state='emphatic')
+        span.small_title= makeJsTitle()
+        h2. 복합 객체의 비교
+        pre
+          code.language-javascript.
+            var objectFoo = { smae : 'same' };
+            var objectBar = { smae : 'same' };
+
+            console.log( objectFoo === objectBar );
+
+            var objectA = { name : 'name' };
+            var objectB = objectA;
+
+            console.log( objectA === objectB );
+        a(data-bespoke-run)
+          | Run!
+      
+      section(data-bespoke-state='emphatic')
+        span.small_title= makeJsTitle()
+        h2. 객체 속성 접근방법
+        ul
+          li object['property_name']
+          li object.property_name
+        pre
+          code.language-javascript.
+            var obj = {
+                name : 'MyObject'
+            };
+            var a = 'name';
+            console.log(obj.name);
+            console.log(obj["name"]);
+            console.log(obj[a]);
+        a(data-bespoke-run)
+          | Run!
+      
+      section(data-bespoke-state='emphatic')
+        span.small_title= makeJsTitle()
+        h2. 함수는 1급 클래스이다.
+        blockquote
+          | 변수, 배열, 객체에 저장될 수 있다는 뜻이다. 또한 함수에 전달될 수도 있고 함수에서 반환될 수도 있다. 그리고 함수는 객체이기 때문에 속성도 가지고 있다.
+          br
+          b - "자바스크립트를 깨우치다" 중에서
+        pre.small_font
+          code.language-javascript.
+            var myFun = function(){
+                console.log('MyFun');
+            };
+
+            var yourFun = function(fn){
+              fn();
+              return function(){
+                console.log('return Fun');
+              }
+            };
+
+            var retFun = yourFun(myFun);
+            retFun();
+        a(data-bespoke-run)
+          | Run!
+
+      section(data-bespoke-state='emphatic')
+        span.small_title= makeJsTitle()
+        h2 this
+        pre
+          code.language-javascript.
+            var obj = {
+                name : 'MyObject'
+            };
+            var a = 'name';
+            console.log(obj.name);
+            console.log(obj["name"]);
+            console.log(obj[a]);
+        a(data-bespoke-run)
+          | Run!
+      
+      section(data-bespoke-state='emphatic')
+        span.small_title= makeJsTitle()
+        h2 arguments
+        pre
+          code.language-javascript.
+            var myFun = function(){
+              console.log(arguments[0]);
+              console.log(arguments.length);
+              console.log(arguments.join);
+              console.log(arguments.callee);
+              console.log([].join);
+            };
+            myFun(1,2,'333','Ti');
+
+        a(data-bespoke-run)
+          | Run!
+
+      section(data-bespoke-state='emphatic')
+        span.small_title= makeJsTitle()
+        h2 Hoisting
+        p.small_font 함수 선언문 먼저 해석하고 Excuete context에 추가
+        pre
+          code.language-javascript.
+            var is_android = true;
+            if(is_android) {
+              function foo() {
+                console.log('I am Android'); 
+              } 
+            } else { 
+              function foo() {
+                console.log('I am NOT Android'); 
+              }
+            }
+            foo();
+        a(data-bespoke-run)
+          | Run!
+
+      section(data-bespoke-state='emphatic')
+        span.small_title= makeJsTitle()
+        h2 클로저
+        pre
+          code.language-javascript.
+            var z = "global";
+            function outerFn() {
+                var z = "local";
+                function innerFn()
+                {
+                        alert(z);
+                }
+                innerFn();
+            }
+            outerFn();
+        a(data-bespoke-run)
+          | Run!
+
+
+      section(data-bespoke-state='emphatic')
+        span.small_title= makeJsTitle()
+        h2 Tip
+        pre
+          code.language-javascript.
+            var a = (isTrue == true)? 'This is true':'This is false';
+        pre
+          code.language-javascript.
+            var a = b || {}
+        pre
+          code.language-javascript
+            | var a = callback && callback();
+
+
+
+      section(data-bespoke-state='reveal')
+        h2 2. Titanium UI
+
+      section(data-bespoke-state='emphatic')
+        span.small_title Titanium UI - View
+        h2 View
+        p 다른 view나 컨트롤을 포함하고 있는 컨테이너, html의 div와 유사함. 뒤에 View로 끝남
+        span.medium_font.gray View, ScrollableView, ListView, TableView, WebView..
+        pre
+          code(data-bespoke-tishadow).language-javascript.
+            var view = Ti.UI.createView({
+                backgroundColor : 'red'
+              });
+            var button = Ti.UI.createButton({
+                title : 'Hello Ti'
+              });
+            view.add(button);
+            alert('View!');
+      section(data-bespoke-state="emphatic")
+        span.small_title Titanium UI - View
+        h4 to Alloy View
+        pre
+          code(data-bespoke-tishadow).language-javascript.
+            var view = Ti.UI.createView({
+                backgroundColor : 'red'
+              });
+            var button = Ti.UI.createButton({
+                title : 'Hello Ti'
+              });
+            view.add(button);
+            alert('View!');
+        pre
+          code.language-markup
+            :markup
+              <View>
+                <Button>Hello Ti</Button>
+              </View>
+      section(data-bespoke-state='emphatic')
+        span.small_title Titanium UI - Window
+        h2 Window
+        p Top level 컨테이너. 화면에 보여주기위해 최소한 1개의 윈도우가 있어야 함. View를 상속받음.
+        pre
+          code(data-bespoke-tishadow).language-javascript.
+            var win = Ti.UI.createWindow();
+            var view = Ti.UI.createView({
+                backgroundColor : '#e74c3c'
+              });
+            var button = Ti.UI.createButton({
+                title : 'Hello Ti'
+              });
+            view.add(button);
+            win.add(view);
+            win.open();
+
+      section(data-bespoke-state='emphatic')
+        span.small_title Titanium UI - Window
+        h4 to Alloy View
+        pre.small_font
+          code(data-bespoke-tishadow).language-javascript.
+            var win = Ti.UI.createWindow();
+            var view = Ti.UI.createView({
+                backgroundColor : '#e74c3c'
+              });
+            var button = Ti.UI.createButton({
+                title : 'Hello Ti'
+              });
+            view.add(button);
+            win.add(view);
+            win.open();
+        pre.small_font
+          code.language-markup
+            :markup
+              <Window>
+                <View>
+                  <Button>Hello Ti</Button>
+                </View>
+              </Window>
+
+      section(data-bespoke-state='emphatic')
+        span.small_title Titanium UI - Control
+        h2 Control
+        p 시각적 요소, 특정 기능/속성을 가지고 있음. View를 상속받음.
+        span.medium_font.gray slider, button, label, switch..
+
+
+
+      section
+        h2 Keyboard Interaction
+        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-keys">bespoke-keys</a>
+
+      section
+        h2 Touch Interaction
+        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-touch">bespoke-touch</a>
+
+      section
+        h2 Responsive Slides
+        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-scale">bespoke-scale</a>
+
+      section
+        h2 Bullet List
+        h3.bullet Powered by <a href="https://github.com/markdalgleish/bespoke-bullets">bespoke-bullets</a>
+        ul
+          li Bullet 1
+          li Bullet 2
+          li Bullet 3
+
+      section
+        h2 Syntax Highlighting
+        h3 Powered by <a href="http://twitter.com/LeaVerou">Lea Verou</a>'s <a href="https://github.com/LeaVerou/prism">Prism</a>
+        hr
+        pre
+          code.language-javascript.
+            bespoke.from('article', {
+              keys: true,
+              touch: true,
+              hash: true,
+              state: true,
+              bullets: 'li, .bullet'
+            });
+
+      section(data-bespoke-hash='named-route')
+        h2 Named Route
+        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-hash">bespoke-hash</a>
+        p Look up! This route has been named with a <em>'data-bespoke-hash'</em> attribute.
+
+      section(data-bespoke-state='emphatic')
+        h2 Emphatic Slide!
+        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-state">bespoke-state</a>
+
+      section
+        h2.bullet Just the beginning...
+        hr
+        ul
+          li Edit <a href="http://jade-lang.com/">Jade</a> markup in <em>'src/index.jade'</em>
+          li Edit <a href="http://learnboost.github.io/stylus/">Stylus</a> styles in <em>'src/styles/main.styl'</em>
+          li Edit JavaScript in <em>'src/scripts/main.js'</em>
+        hr
+        ul
+          li
+            strong Enjoy! :)
+            a(href='http://twitter.com/markdalgleish')  -@markdalgleish
+
+    // build:js scripts/scripts.js
+    script(src='bower_components/bespoke.js/dist/bespoke.min.js')
+    script(src='bower_components/bespoke-keys/dist/bespoke-keys.min.js')
+    script(src='bower_components/bespoke-touch/dist/bespoke-touch.min.js')
+    script(src='bower_components/bespoke-bullets/dist/bespoke-bullets.min.js')
+    script(src='bower_components/bespoke-scale/dist/bespoke-scale.min.js')
+    script(src='bower_components/bespoke-hash/dist/bespoke-hash.min.js')
+    script(src='bower_components/bespoke-progress/dist/bespoke-progress.min.js')
+    script(src='bower_components/bespoke-state/dist/bespoke-state.min.js')
+    script(src='bower_components/bespoke-forms/dist/bespoke-forms.min.js')
+    script(src='bower_components/bespoke-tishadow/dist/bespoke-tishadow.js')
+    script(src='bower_components/bespoke-run/dist/bespoke-run.js')
+    //- script(src='bower_components/bespoke-dir/dist/bespoke-dir.js')
+    script(src='bower_components/prism/prism.js')
+    script(src='scripts/main.js')
+    // endbuild
