@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Hello Ti</title>
+    <link rel="stylesheet" href="styles/styles.css"/>
+  </head>
+  <body>
+    <article id="main-article">
+      <section data-bespoke-state="reveal">
+        <h1>Hello Titanium</h1>
+        <h3>타이타늄 시작하기</h3>
+        <h5>rev.201402</h5>
+      </section>
+      <section data-bespoke-state="emphatic">
+        <h2>이종은</h2>
+        <h3>인디 개발자</h3>
+        <ul class="badge_list">
+          <li>TiDev.kr(한국 타이타늄 사용자 모임) 운영</li>
+          <li>Titanium Certified Expert</li>
+          <li>Titan</li>
+          <li><img src="/tidev.png" class="badge">&nbsp;<img src="/tced.png" class="badge">&nbsp;<img src="/titans.png" class="badge"></li>
+          <li></li>
+        </ul>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">인사 나눠요~</span>
+        <h2>여러분은?</h2>
+        <p>이름, Ti경험, JavaScript경험, 만들려고 하는 앱</p>
+      </section>
+      <section data-bespoke-state="emphatic">
+        <h2>강좌 내용</h2>
+        <h3>첫째날 - 타이타늄의 이해</h3>
+        <ol class="lecture_list">
+          <li>Javascript 이해</li>
+          <li>Titanium UI & Alloy View</li>
+          <li>Titanium UI & Alloy Controller</li>
+          <li>Cross Platform</li>
+          <li>Widget과 Module 사용하기</li>
+        </ol>
+      </section>
+      <section data-bespoke-state="emphatic">
+        <h2>강좌 내용</h2>
+        <h3>둘째날 - 앱 제작 실습</h3>
+        <ol class="lecture_list">
+          <li>Alloy Model (MVC의 이해)</li>
+          <li>BaaS란?</li>
+          <li>App - 회원가입/로그인</li>
+          <li>App - 글목록</li>
+          <li>App - 글작성</li>
+          <li>App - 사진 업로드</li>
+        </ol>
+      </section>
+      <section data-bespoke-state="reveal">
+        <h2>1. Javascript의 이해</h2>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 1/11</span>
+        <h2>비교 연산자 == vs ===</h2>
+        <pre><code class="language-javascript">var one= 1, oneString = '1' , t = true;
+
+console.log(one == oneString);
+console.log(one == t);
+console.log(oneString == t);
+
+console.log(one === oneString);
+console.log(one === t);
+console.log(oneString === t);</code></pre><a data-bespoke-run>Run!</a>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 2/11</span>
+        <h2>원시값의 복사</h2>
+        <pre><code class="language-javascript">var p = 1;
+var copyOfP = p;
+p = 3;
+console.log(copyOfP);
+
+var myObject = {};
+var copyOfMyObject = myObject;
+myObject.foo = 'bar';
+console.log(copyOfMyObject.foo);</code></pre><a data-bespoke-run>Run!</a>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 3/11</span>
+        <h2>원시값의 비교</h2>
+        <pre><code class="language-javascript">var p1 = 10;
+var p2 = 10;
+var p3 = new Number('10');
+var p3_1 = Number('10');
+var p4 = p3;
+
+console.log(p1 === p2);
+console.log(p1 === p3);
+console.log(p3_1 === p3);
+console.log(p1 === p3_1);
+p4=10;
+console.log(p4 === p3);</code></pre><a data-bespoke-run>Run!</a>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 4/11</span>
+        <h2>복합 객체의 비교</h2>
+        <pre><code class="language-javascript">var objectFoo = { smae : 'same' };
+var objectBar = { smae : 'same' };
+
+console.log( objectFoo === objectBar );
+
+var objectA = { name : 'name' };
+var objectB = objectA;
+
+console.log( objectA === objectB );</code></pre><a data-bespoke-run>Run!</a>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 5/11</span>
+        <h2>객체 속성 접근방법</h2>
+        <ul>
+          <li>object['property_name']</li>
+          <li>object.property_name</li>
+        </ul>
+        <pre><code class="language-javascript">var obj = {
+    name : 'MyObject'
+};
+var a = 'name';
+console.log(obj.name);
+console.log(obj["name"]);
+console.log(obj[a]);</code></pre><a data-bespoke-run>Run!</a>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 6/11</span>
+        <h2>함수는 1급 클래스이다.</h2>
+        <blockquote>변수, 배열, 객체에 저장될 수 있다는 뜻이다. 또한 함수에 전달될 수도 있고 함수에서 반환될 수도 있다. 그리고 함수는 객체이기 때문에 속성도 가지고 있다.<br><b>- "자바스크립트를 깨우치다" 중에서</b></blockquote>
+        <pre class="small_font"><code class="language-javascript">var myFun = function(){
+    console.log('MyFun');
+};
+
+var yourFun = function(fn){
+  fn();
+  return function(){
+    console.log('return Fun');
+  }
+};
+
+var retFun = yourFun(myFun);
+retFun();</code></pre><a data-bespoke-run>Run!</a>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 7/11</span>
+        <h2>this</h2>
+        <pre><code class="language-javascript">var obj = {
+    name : 'MyObject'
+};
+var a = 'name';
+console.log(obj.name);
+console.log(obj["name"]);
+console.log(obj[a]);</code></pre><a data-bespoke-run>Run!</a>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 8/11</span>
+        <h2>arguments</h2>
+        <pre><code class="language-javascript">var myFun = function(){
+  console.log(arguments[0]);
+  console.log(arguments.length);
+  console.log(arguments.join);
+  console.log(arguments.callee);
+  console.log([].join);
+};
+myFun(1,2,'333','Ti');
+</code></pre><a data-bespoke-run>Run!</a>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 9/11</span>
+        <h2>Hoisting</h2>
+        <p class="small_font">함수 선언문 먼저 해석하고 Excuete context에 추가</p>
+        <pre><code class="language-javascript">var is_android = true;
+if(is_android) {
+  function foo() {
+    console.log('I am Android'); 
+  } 
+} else { 
+  function foo() {
+    console.log('I am NOT Android'); 
+  }
+}
+foo();</code></pre><a data-bespoke-run>Run!</a>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 10/11</span>
+        <h2>클로저</h2>
+        <pre><code class="language-javascript">var z = "global";
+function outerFn() {
+    var z = "local";
+    function innerFn()
+    {
+            alert(z);
+    }
+    innerFn();
+}
+outerFn();</code></pre><a data-bespoke-run>Run!</a>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 11/11</span>
+        <h2>Tip</h2>
+        <pre><code class="language-javascript">var a = (isTrue == true)? 'This is true':'This is false';</code></pre>
+        <pre><code class="language-javascript">var a = b || {}</code></pre>
+        <pre><code class="language-javascript">var a = callback && callback();</code></pre>
+      </section>
+      <section data-bespoke-state="reveal">
+        <h2>2. Titanium UI</h2>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Titanium UI - View</span>
+        <h2>View</h2>
+        <p>다른 view나 컨트롤을 포함하고 있는 컨테이너, html의 div와 유사함. 뒤에 View로 끝남</p><span class="medium_font gray">View, ScrollableView, ListView, TableView, WebView..</span>
+        <pre><code data-bespoke-tishadow class="language-javascript">var view = Ti.UI.createView({
+    backgroundColor : 'red'
+});
+var button = Ti.UI.createButton({
+    title : 'Hello Ti'
+});
+view.add(button);
+alert('View!');</code></pre>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Titanium UI - View</span>
+        <h4>to Alloy View</h4>
+        <pre><code data-bespoke-tishadow class="language-javascript">var view = Ti.UI.createView({
+    backgroundColor : 'red'
+});
+var button = Ti.UI.createButton({
+    title : 'Hello Ti'
+});
+view.add(button);
+alert('View!');</code></pre>
+        <pre><code class="language-markup">&lt;View&gt;
+  &lt;Button&gt;Hello Ti&lt;/Button&gt;
+&lt;/View&gt;</code></pre>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Titanium UI - Window</span>
+        <h2>Window</h2>
+        <p>Top level 컨테이너. 화면에 보여주기위해 최소한 1개의 윈도우가 있어야 함. View를 상속받음.</p>
+        <pre><code data-bespoke-tishadow class="language-javascript">var win = Ti.UI.createWindow();
+var view = Ti.UI.createView({
+    backgroundColor : '#e74c3c'
+});
+var button = Ti.UI.createButton({
+    title : 'Hello Ti'
+});
+view.add(button);
+win.add(view);
+win.open();
+</code></pre>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Titanium UI - Window</span>
+        <h4>to Alloy View</h4>
+        <pre class="small_font"><code data-bespoke-tishadow class="language-javascript">var win = Ti.UI.createWindow();
+var view = Ti.UI.createView({
+    backgroundColor : '#e74c3c'
+});
+var button = Ti.UI.createButton({
+    title : 'Hello Ti'
+});
+view.add(button);
+win.add(view);
+win.open();</code></pre>
+        <pre class="small_font"><code class="language-markup">&lt;Window&gt;
+  &lt;View&gt;
+    &lt;Button&gt;Hello Ti&lt;/Button&gt;
+  &lt;/View&gt;
+&lt;/Window&gt;
+</code></pre>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Titanium UI - Control</span>
+        <h2>Control</h2>
+        <p>시각적 요소, 특정 기능/속성을 가지고 있음. View를 상속받음.</p><span class="medium_font gray">slider, button, label, switch..</span>
+      </section>
+      <section>
+        <h2>Keyboard Interaction</h2>
+        <h3>Powered by <a href="https://github.com/markdalgleish/bespoke-keys">bespoke-keys</a></h3>
+      </section>
+      <section>
+        <h2>Touch Interaction</h2>
+        <h3>Powered by <a href="https://github.com/markdalgleish/bespoke-touch">bespoke-touch</a></h3>
+      </section>
+      <section>
+        <h2>Responsive Slides</h2>
+        <h3>Powered by <a href="https://github.com/markdalgleish/bespoke-scale">bespoke-scale</a></h3>
+      </section>
+      <section>
+        <h2>Bullet List</h2>
+        <h3 class="bullet">Powered by <a href="https://github.com/markdalgleish/bespoke-bullets">bespoke-bullets</a></h3>
+        <ul>
+          <li>Bullet 1</li>
+          <li>Bullet 2</li>
+          <li>Bullet 3</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Syntax Highlighting</h2>
+        <h3>Powered by <a href="http://twitter.com/LeaVerou">Lea Verou</a>'s <a href="https://github.com/LeaVerou/prism">Prism</a></h3>
+        <hr>
+        <pre><code class="language-javascript">bespoke.from('article', {
+  keys: true,
+  touch: true,
+  hash: true,
+  state: true,
+  bullets: 'li, .bullet'
+});
+</code></pre>
+      </section>
+      <section data-bespoke-hash="named-route">
+        <h2>Named Route</h2>
+        <h3>Powered by <a href="https://github.com/markdalgleish/bespoke-hash">bespoke-hash</a></h3>
+        <p>Look up! This route has been named with a <em>'data-bespoke-hash'</em> attribute.</p>
+      </section>
+      <section data-bespoke-state="emphatic">
+        <h2>Emphatic Slide!</h2>
+        <h3>Powered by <a href="https://github.com/markdalgleish/bespoke-state">bespoke-state</a></h3>
+      </section>
+      <section>
+        <h2 class="bullet">Just the beginning...</h2>
+        <hr>
+        <ul>
+          <li>Edit <a href="http://jade-lang.com/">Jade</a> markup in <em>'src/index.jade'</em></li>
+          <li>Edit <a href="http://learnboost.github.io/stylus/">Stylus</a> styles in <em>'src/styles/main.styl'</em></li>
+          <li>Edit JavaScript in <em>'src/scripts/main.js'</em></li>
+        </ul>
+        <hr>
+        <ul>
+          <li><strong>Enjoy! :)</strong><a href="http://twitter.com/markdalgleish"> -@markdalgleish</a></li>
+        </ul>
+      </section>
+    </article>
+    <script src="scripts/scripts.js"></script>
+  </body>
+</html>
