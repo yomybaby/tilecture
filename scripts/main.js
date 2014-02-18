@@ -26,7 +26,8 @@ bespoke.from('#main-article', {
   state: true,
   forms: true,
   tishadow: true,
-  run: true,
+  run: true
+  // jumpy: true
   // backgroundElement: true
 });
 

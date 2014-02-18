@@ -26,7 +26,15 @@
       </section>
       <section data-bespoke-state="emphatic"><span class="small_title">인사 나눠요~</span>
         <h2>여러분은?</h2>
-        <p>이름, Ti경험, JavaScript경험, 만들려고 하는 앱</p>
+        <ul>
+          <li>이름,</li>
+          <li>수업을 통해 알고 싶은 것,</li>
+          <li>만들려고 하는 앱,</li>
+          <li>하고 싶은 말 (아무거나^^)</li>
+        </ul>
+      </section>
+      <section data-bespoke-state="emphatic">
+        <h2>Titanium 설정 하셨나요?</h2><a href="https://github.com/yomybaby/TiStudy/blob/master/SETTING_GUIDE.md" target="_blank">https://github.com/yomybaby/TiStudy/blob/master/SETTING_GUIDE.md</a>
       </section>
       <section data-bespoke-state="emphatic">
         <h2>강좌 내용</h2>
@@ -52,7 +60,7 @@
         </ol>
       </section>
       <section data-bespoke-state="reveal">
-        <h2>1. Javascript의 이해</h2>
+        <h2>1Javascript의 이해</h2>
       </section>
       <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 1/11</span>
         <h2>비교 연산자 == vs ===</h2>
@@ -192,8 +200,53 @@ outerFn();</code></pre><a data-bespoke-run>Run!</a>
         <pre><code class="language-javascript">var a = b || {}</code></pre>
         <pre><code class="language-javascript">var a = callback && callback();</code></pre>
       </section>
+      <!-- !!!!!!!!!!!!!!!!!!!!!-->
+      <!-- 환경 설정 관련 부분 ---- 시작-->
+      <section data-bespoke-state="reveal"><span class="small_title">[Appendix - 실습준비]</span>
+        <h2>잠깐! 타이타늄 환경 설정 점검</h2>
+        <ul>
+          <li>Ti Studio에서 프로젝트 생성</li>
+          <li>실습용 github 저장소 설정하기</li>
+          <li>tishadow 확인하기</li>
+        </ul>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">[Appendix - 실습준비]</span>
+        <h2>실습 준비</h2>
+        <ul class="lecture_list">
+          <li>Titanium Studio에서 myHelloTi 프로젝트 생성 </li>
+          <li>터미널에서 workspace 폴더로 이동</li>
+          <li>git clone git@github.com:yomybaby/HelloTi.git</li>
+          <li>cp -R myHelloTi/* HelloTi/</li>
+          <li>rm -R myHelloTi</li>
+          <li>mv HelloTi myHelloTi</li>
+          <li>cd myHelloTi</li>
+          <li>git checkout v.start --force</li>
+          <li>(ios) <b>ti build -p ios --tishadow</b><br>(android) <b>ti build -p android --device-id "Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280" --tishadow</b></li>
+        </ul>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">[Appendix - 실습준비]</span>
+        <h2>iOS, Android 동시에 확인하려면</h2>
+        <ul class="lecture_list">
+          <li>ti build -p ios --tishadow</li>
+          <li>ti build -p android --device-id "Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280" --tishadow</li>
+          <li>ts server</li>
+          <li>ts @ run -u</li>
+          <li>app 재실행</li>
+        </ul>
+      </section>
+      <section data-bespoke-state="reveal"><span class="small_title">[Appendix - 실습준비]</span>
+        <h1>준비완료!</h1>
+        <h2>이제부터 Titanium 시작입니다.</h2>
+      </section>
+      <!-- 환경 설정 관련 부분 ---  끝-->
+      <!-- !!!!!!!!!!!!!!!!!!!!!-->
       <section data-bespoke-state="reveal">
-        <h2>2. Titanium UI</h2>
+        <h2>2. Titanium UI 요소</h2>
+        <ul>
+          <li>View</li>
+          <li>Window</li>
+          <li>Control</li>
+        </ul>
       </section>
       <section data-bespoke-state="emphatic"><span class="small_title">Titanium UI - View</span>
         <h2>View</h2>
@@ -259,61 +312,79 @@ win.open();</code></pre>
         <h2>Control</h2>
         <p>시각적 요소, 특정 기능/속성을 가지고 있음. View를 상속받음.</p><span class="medium_font gray">slider, button, label, switch..</span>
       </section>
-      <section>
-        <h2>Keyboard Interaction</h2>
-        <h3>Powered by <a href="https://github.com/markdalgleish/bespoke-keys">bespoke-keys</a></h3>
-      </section>
-      <section>
-        <h2>Touch Interaction</h2>
-        <h3>Powered by <a href="https://github.com/markdalgleish/bespoke-touch">bespoke-touch</a></h3>
-      </section>
-      <section>
-        <h2>Responsive Slides</h2>
-        <h3>Powered by <a href="https://github.com/markdalgleish/bespoke-scale">bespoke-scale</a></h3>
-      </section>
-      <section>
-        <h2>Bullet List</h2>
-        <h3 class="bullet">Powered by <a href="https://github.com/markdalgleish/bespoke-bullets">bespoke-bullets</a></h3>
+      <section data-bespoke-state="reveal">
+        <h2>3. Titanium UI - Alloy 중심으로 실습</h2>
         <ul>
-          <li>Bullet 1</li>
-          <li>Bullet 2</li>
-          <li>Bullet 3</li>
+          <li>Allo MVC Framework란?</li>
+          <li>View (.xml)</li>
+          <li>Style (.tss)</li>
+          <li>controller (.js)</li>
         </ul>
       </section>
-      <section>
-        <h2>Syntax Highlighting</h2>
-        <h3>Powered by <a href="http://twitter.com/LeaVerou">Lea Verou</a>'s <a href="https://github.com/LeaVerou/prism">Prism</a></h3>
+      <section data-bespoke-state="emphatic"><span class="small_title">Titanium UI - Size</span>
+        <h2>크기 지정</h2>
+        <h3>Ti.UI.SIZE, Ti.UI.FILL</h3>
         <hr>
-        <pre><code class="language-javascript">bespoke.from('article', {
-  keys: true,
-  touch: true,
-  hash: true,
-  state: true,
-  bullets: 'li, .bullet'
-});
+        <p>Buttons, labels, images, text fields and areas<br><strong> = Ti.UI.SIZE</strong></p>
+        <p>Windows, views, tables, webviews<br><strong> = Ti.UI.FILL</strong></p>
+        <p>Table rows<br><strong> = width는 FILL하고 height은 SIZE에 맞게</strong></p><a href="http://docs.appcelerator.com/titanium/latest/#!/guide/Layouts,_Positioning,_and_the_View_Hierarchy-section-29004895_Layouts%2CPositioning%2CandtheViewHierarchy-AutoSizeBehaviors" target="_blank">공식 문서 보기</a>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Titanium UI - Size</span>
+        <h2>단위</h2>
+        <p>px, mm, cm, in, dp, dip, or system</p>
+        <hr>
+        <h4>tiapp.xml 에 기본 설정 지정</h4>
+        <pre><code class="language-markup">&lt;property name=&quot;ti.ui.defaultunit&quot;&gt;system&lt;/property&gt;
 </code></pre>
       </section>
-      <section data-bespoke-hash="named-route">
-        <h2>Named Route</h2>
-        <h3>Powered by <a href="https://github.com/markdalgleish/bespoke-hash">bespoke-hash</a></h3>
-        <p>Look up! This route has been named with a <em>'data-bespoke-hash'</em> attribute.</p>
-      </section>
-      <section data-bespoke-state="emphatic">
-        <h2>Emphatic Slide!</h2>
-        <h3>Powered by <a href="https://github.com/markdalgleish/bespoke-state">bespoke-state</a></h3>
-      </section>
-      <section>
-        <h2 class="bullet">Just the beginning...</h2>
+      <section data-bespoke-state="emphatic"><span class="small_title">Titanium UI - Positioning</span>
+        <h2>위치 잡기</h2>
+        <p>left, top, right, bottom</p>
         <hr>
-        <ul>
-          <li>Edit <a href="http://jade-lang.com/">Jade</a> markup in <em>'src/index.jade'</em></li>
-          <li>Edit <a href="http://learnboost.github.io/stylus/">Stylus</a> styles in <em>'src/styles/main.styl'</em></li>
-          <li>Edit JavaScript in <em>'src/scripts/main.js'</em></li>
+        <p>이 속성들은 크기와도 관련이 있다?</p>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Titanium UI - Positioning</span>
+        <h2>레이아웃 모드</h2>
+        <p>vertical, horizontal, absolute</p>
+        <ul class="small_font">
+          <li>horizontalWrap 속성</li>
         </ul>
-        <hr>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Titanium UI - Positioning</span>
+        <h2>sibiling 간의 순서</h2>
         <ul>
-          <li><strong>Enjoy! :)</strong><a href="http://twitter.com/markdalgleish"> -@markdalgleish</a></li>
+          <li>기본동작</li>
+          <li>zIndex 지정</li>
         </ul>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Titanium UI - Event</span>
+        <h2>Event 다루기</h2>
+        <ul>
+          <li>UI 컨트롤(proxy)의 이벤트</li>
+          <li>Alloy Controller의 이벤트</li>
+          <li>Ti.App의 이벤트</li>
+        </ul>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Titanium UI - Corss Platform</span>
+        <h3>Android와 iOS 따로 대응하기</h3>
+        <h4>파일로 구분</h4>
+        <ul>
+          <li>image : native와 동일</li>
+          <li>folder로 구분</li>
+          <li><a href="http://docs.appcelerator.com/titanium/3.0/#!/guide/Alloy_Controllers-section-34636384_AlloyControllers-ConditionalCode" target="_blank">Alloy Controller 구분자</a></li>
+          <li><a href="http://docs.appcelerator.com/titanium/3.0/#!/guide/Alloy_Styles_and_Themes-section-35621526_AlloyStylesandThemes-Platform-SpecificStyles" target="_blank">Alloy Style 및 View에서 platform 속성</a></li>
+        </ul>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Titanium UI - Alloy Widget과 모듈</span>
+        <h2>Alloy Widget과 Module</h2>
+        <ul>
+          <li>기본사용법</li>
+          <li><a href="http://gitt.io/cli" target="_blank">gitt.io 이용법</a></li>
+        </ul>
+      </section>
+      <section data-bespoke-state="reveal">
+        <h2>4. Titanium 동작 방식의 이해</h2>
+        <p>keynote로 진행</p><a href="http://www.slideshare.net/yomybaby/tidev-meetup-in-seoul-201308" target="_blank">Slideshare 버전 보기</a>
       </section>
     </article>
     <script src="scripts/scripts.js"></script>
