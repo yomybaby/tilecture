@@ -30,16 +30,20 @@ html
           li
             | Titan
           li
-            img(src='/tidev.png', class="badge")
+            img(src='tidev.png', class="badge")
             &nbsp;
-            img(src='/tced.png', class="badge")
+            img(src='tced.png', class="badge")
             &nbsp;
-            img(src='/titans.png', class="badge")
+            img(src='titans.png', class="badge")
           li
       section(data-bespoke-state='emphatic')
         span.small_title 인사 나눠요~
         h2 여러분은?
         p 이름, Ti경험, JavaScript경험, 만들려고 하는 앱
+      section(data-bespoke-state='emphatic')
+        h2 Titanium 설정 하셨나요?
+        a(href="https://github.com/yomybaby/TiStudy/blob/master/SETTING_GUIDE.md", target="_blank")
+          | https://github.com/yomybaby/TiStudy/blob/master/SETTING_GUIDE.md
       section(data-bespoke-state='emphatic')
         h2 강좌 내용
         h3 첫째날 - 타이타늄의 이해
@@ -61,15 +65,15 @@ html
           li App - 사진 업로드
 
       
-
+      - var revealCnt = 0;
       section(data-bespoke-state='reveal')
-        h2 1. Javascript의 이해
+        h2= (++revealCnt)+'Javascript의 이해'
 
       - var  jsCnt = 0; jsTotal=11;
       - var makeJsTitle = function(){ return 'Javascript의 이해 '+ (++jsCnt) + '/' + jsTotal };
       section(data-bespoke-state='emphatic')
         span.small_title= makeJsTitle()
-        h2. 비교 연산자 == vs ===
+        h2 비교 연산자 == vs ===
         pre
           code.language-javascript.
             var one= 1, oneString = '1' , t = true;
@@ -86,7 +90,7 @@ html
 
       section(data-bespoke-state='emphatic')
         span.small_title= makeJsTitle()
-        h2. 원시값의 복사
+        h2 원시값의 복사
         pre
           code.language-javascript.
             var p = 1;
@@ -267,8 +271,67 @@ html
 
 
 
+
+
+
+
+      // !!!!!!!!!!!!!!!!!!!!!
+      // 환경 설정 관련 부분 ---- 시작
       section(data-bespoke-state='reveal')
-        h2 2. Titanium UI
+        span.small_title [Appendix - 실습준비]
+        h2 잠깐! 타이타늄 환경 설정 점검
+        ul
+          li Ti Studio에서 프로젝트 생성
+          li 실습용 github 저장소 설정하기
+          li tishadow 확인하기
+
+      section(data-bespoke-state='emphatic')
+        span.small_title [Appendix - 실습준비]
+        h2 실습 준비
+        ul.lecture_list
+          li Titanium Studio에서 myHelloTi 프로젝트 생성 
+          li 터미널에서 workspace 폴더로 이동
+          li git clone git@github.com:yomybaby/HelloTi.git
+          li cp -R myHelloTi/* HelloTi/
+          li rm -R myHelloTi
+          li mv HelloTi myHelloTi
+          li cd myHelloTi
+          li git checkout v.start --force
+          li
+            | (ios) 
+            b ti build -p ios --tishadow
+            br
+            | (android) 
+            b ti build -p android --device-id "Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280" --tishadow
+
+      section(data-bespoke-state='emphatic')
+        span.small_title [Appendix - 실습준비]
+        h2 iOS, Android 동시에 확인하려면
+        ul.lecture_list
+          li ti build -p ios --tishadow
+          li ti build -p android --device-id "Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280" --tishadow
+          li ts server
+          li ts @ run -u
+          li app 재실행
+
+      section(data-bespoke-state='reveal')
+        span.small_title [Appendix - 실습준비]
+        h1 준비완료!
+        h2 이제부터 Titanium 시작입니다.
+      // 환경 설정 관련 부분 ---  끝
+      // !!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+
+      section(data-bespoke-state='reveal')
+        h2= (++revealCnt)+'. Titanium UI 요소'
+        ul
+          li View
+          li Window
+          li Control
 
       section(data-bespoke-state='emphatic')
         span.small_title Titanium UI - View
@@ -352,62 +415,40 @@ html
         span.medium_font.gray slider, button, label, switch..
 
 
+      
 
-      section
-        h2 Keyboard Interaction
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-keys">bespoke-keys</a>
 
-      section
-        h2 Touch Interaction
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-touch">bespoke-touch</a>
-
-      section
-        h2 Responsive Slides
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-scale">bespoke-scale</a>
-
-      section
-        h2 Bullet List
-        h3.bullet Powered by <a href="https://github.com/markdalgleish/bespoke-bullets">bespoke-bullets</a>
+      section(data-bespoke-state='reveal')
+        h2= (++revealCnt)+'. Titanium UI - Alloy 실습'
         ul
-          li Bullet 1
-          li Bullet 2
-          li Bullet 3
-
-      section
-        h2 Syntax Highlighting
-        h3 Powered by <a href="http://twitter.com/LeaVerou">Lea Verou</a>'s <a href="https://github.com/LeaVerou/prism">Prism</a>
-        hr
-        pre
-          code.language-javascript.
-            bespoke.from('article', {
-              keys: true,
-              touch: true,
-              hash: true,
-              state: true,
-              bullets: 'li, .bullet'
-            });
-
-      section(data-bespoke-hash='named-route')
-        h2 Named Route
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-hash">bespoke-hash</a>
-        p Look up! This route has been named with a <em>'data-bespoke-hash'</em> attribute.
+          li Allo MVC Framework란?
+          li View (.xml) 실습
+          li Style (.tss) 실습
+          li - Size와 Positioning의 이해 및 실습
+          li controller (.js)
 
       section(data-bespoke-state='emphatic')
-        h2 Emphatic Slide!
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-state">bespoke-state</a>
+        span.small_title Titanium UI - Size
+        h2 Size
+        h3 Ti.UI.SIZE, Ti.UI.FILL
+        hr
+        p Buttons, labels, images, text fields and areas
+          br
+          strong  = Ti.UI.SIZE
+        p Windows, views, tables, webviews
+          br
+          strong  = Ti.UI.FILL
+        p Table rows
+          br
+          strong  = width는 FILL하고 height은 SIZE에 맞게
 
-      section
-        h2.bullet Just the beginning...
-        hr
-        ul
-          li Edit <a href="http://jade-lang.com/">Jade</a> markup in <em>'src/index.jade'</em>
-          li Edit <a href="http://learnboost.github.io/stylus/">Stylus</a> styles in <em>'src/styles/main.styl'</em>
-          li Edit JavaScript in <em>'src/scripts/main.js'</em>
-        hr
-        ul
-          li
-            strong Enjoy! :)
-            a(href='http://twitter.com/markdalgleish')  -@markdalgleish
+
+      section(data-bespoke-state='reveal')
+        h2= (++revealCnt)+'. Titanium 동작 방식의 이해'
+        p keynote로 진행
+        a(href="http://www.slideshare.net/yomybaby/tidev-meetup-in-seoul-201308",target="_blank") Slideshare 버전 보기
+
+
 
     // build:js scripts/scripts.js
     script(src='bower_components/bespoke.js/dist/bespoke.min.js')
@@ -421,6 +462,7 @@ html
     script(src='bower_components/bespoke-forms/dist/bespoke-forms.min.js')
     script(src='bower_components/bespoke-tishadow/dist/bespoke-tishadow.js')
     script(src='bower_components/bespoke-run/dist/bespoke-run.js')
+    //- script(src='bower_components/bespoke-jumpy/dist/bespoke-jumpy.js')
     //- script(src='bower_components/bespoke-dir/dist/bespoke-dir.js')
     script(src='bower_components/prism/prism.js')
     script(src='scripts/main.js')
