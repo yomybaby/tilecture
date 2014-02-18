@@ -39,7 +39,11 @@ html
       section(data-bespoke-state='emphatic')
         span.small_title 인사 나눠요~
         h2 여러분은?
-        p 이름, Ti경험, JavaScript경험, 만들려고 하는 앱
+        ul 
+          li 이름,
+          li 수업을 통해 알고 싶은 것,
+          li 만들려고 하는 앱,
+          li 하고 싶은 말 (아무거나^^)
       section(data-bespoke-state='emphatic')
         h2 Titanium 설정 하셨나요?
         a(href="https://github.com/yomybaby/TiStudy/blob/master/SETTING_GUIDE.md", target="_blank")
@@ -62,9 +66,15 @@ html
           li App - 회원가입/로그인
           li App - 글목록
           li App - 글작성
-          li App - 사진 업로드
+          li App - 사진 업로드 or 댓글 작성
 
-      
+      section(data-bespoke-state='reveal')
+        span.small_title 시작하기에 앞서
+        h2 Titanium 동작 방식의 이해
+        h3 기본편
+        p keynote로 진행 - 16~22page
+        a(href="http://www.slideshare.net/yomybaby/tidev-meetup-in-seoul-201308",target="_blank") Slideshare 버전 보기
+
       - var revealCnt = 0;
       section(data-bespoke-state='reveal')
         h2= (++revealCnt)+'Javascript의 이해'
@@ -414,22 +424,17 @@ html
         p 시각적 요소, 특정 기능/속성을 가지고 있음. View를 상속받음.
         span.medium_font.gray slider, button, label, switch..
 
-
-      
-
-
       section(data-bespoke-state='reveal')
-        h2= (++revealCnt)+'. Titanium UI - Alloy 실습'
+        h2= (++revealCnt)+'. Titanium UI - Alloy 중심으로 실습'
         ul
           li Allo MVC Framework란?
-          li View (.xml) 실습
-          li Style (.tss) 실습
-          li - Size와 Positioning의 이해 및 실습
+          li View (.xml)
+          li Style (.tss)
           li controller (.js)
 
       section(data-bespoke-state='emphatic')
         span.small_title Titanium UI - Size
-        h2 Size
+        h2 크기 지정
         h3 Ti.UI.SIZE, Ti.UI.FILL
         hr
         p Buttons, labels, images, text fields and areas
@@ -441,12 +446,90 @@ html
         p Table rows
           br
           strong  = width는 FILL하고 height은 SIZE에 맞게
+        a(href="http://docs.appcelerator.com/titanium/latest/#!/guide/Layouts,_Positioning,_and_the_View_Hierarchy-section-29004895_Layouts%2CPositioning%2CandtheViewHierarchy-AutoSizeBehaviors",target="_blank")
+          | 공식 문서 보기
 
+      section(data-bespoke-state='emphatic')
+        span.small_title Titanium UI - Size
+        h2 단위
+        p px, mm, cm, in, dp, dip, or system
+        hr
+        h4 tiapp.xml 에 기본 설정 지정
+        pre
+          code.language-markup
+            :markup
+              <property name="ti.ui.defaultunit">system</property>
 
-      section(data-bespoke-state='reveal')
-        h2= (++revealCnt)+'. Titanium 동작 방식의 이해'
-        p keynote로 진행
-        a(href="http://www.slideshare.net/yomybaby/tidev-meetup-in-seoul-201308",target="_blank") Slideshare 버전 보기
+      section(data-bespoke-state='emphatic')
+        span.small_title Titanium UI - Positioning
+        h2 위치 잡기
+        p left, top, right, bottom
+        hr
+        p 이 속성들은 크기와도 관련이 있다?
+      
+      section(data-bespoke-state='emphatic')
+        span.small_title Titanium UI - Positioning
+        h2 레이아웃 모드
+        p vertical, horizontal, absolute
+        ul.small_font
+          li horizontalWrap 속성
+
+      section(data-bespoke-state='emphatic')
+        span.small_title Titanium UI - Positioning
+        h2 sibiling 간의 순서
+        ul
+          li 기본동작
+          li zIndex 지정
+
+      section(data-bespoke-state='emphatic')
+        span.small_title Titanium UI - Event
+        h2 Event 다루기
+        ul
+          li UI 컨트롤(proxy)의 이벤트
+          li Alloy Controller의 이벤트
+          li Ti.App의 이벤트
+
+      section(data-bespoke-state='emphatic')
+        span.small_title Titanium UI - Corss Platform
+        h3 Android와 iOS 따로 대응하기
+        h4 파일로 구분
+        ul
+          li image : native와 동일
+          li folder로 구분
+          li 
+            a(href="http://docs.appcelerator.com/titanium/3.0/#!/guide/Alloy_Controllers-section-34636384_AlloyControllers-ConditionalCode", target="_blank") Alloy Controller 구분자
+          li
+            a(href="http://docs.appcelerator.com/titanium/3.0/#!/guide/Alloy_Styles_and_Themes-section-35621526_AlloyStylesandThemes-Platform-SpecificStyles", target="_blank") Alloy Style 및 View에서 platform 속성
+
+      section(data-bespoke-state='emphatic')
+        span.small_title Titanium UI - Alloy Widget과 모듈
+        h2 Alloy Widget과 Module
+        ul
+          li Alloy Widget -
+            a(href="http://alloylove.com", target="_blank") alloylove.com
+          li Titanium Moduel -
+            a(href="http://marketplace.appcelerator.com", target="_blank") marketplace.appcelerator.com
+        hr
+        p.bullet 
+          b 종류가 많아서 좋지만 설정이 번거럽네요.ㅠ
+      section(data-bespoke-state='emphatic')
+        span.small_title Titanium UI - Alloy Widget과 모듈
+        h2
+          a(href="http://gitt.io/cli", target="_blank") gitt.io
+          | - Alloy Widget과 Module을 한방
+        ul
+          li Widget 실습 - 
+            a(href="http://gitt.io/component/toasty", target="_blank") toasty
+
+       
+      section(data-bespoke-state='emphatic')
+        h2 오늘은 개념 잡는 날
+        h2 궁금하신 점?
+        h3 내일은 앱 만드는 날
+
+      section(data-bespoke-state='success')
+        h1 Thanks
+        h2 내일 만나요~
 
 
 
