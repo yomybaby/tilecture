@@ -9,6 +9,10 @@
   <body>
     <article id="main-article">
       <section data-bespoke-state="reveal">
+        <h3>git fetch --all</h3>
+        <h3>git checkout 20140219 --force</h3>
+      </section>
+      <section data-bespoke-state="reveal">
         <h1>Hello Titanium</h1>
         <h3>타이타늄 시작하기</h3>
         <h5>rev.201402</h5>
@@ -35,6 +39,13 @@
       </section>
       <section data-bespoke-state="emphatic">
         <h2>Titanium 설정 하셨나요?</h2><a href="https://github.com/yomybaby/TiStudy/blob/master/SETTING_GUIDE.md" target="_blank">https://github.com/yomybaby/TiStudy/blob/master/SETTING_GUIDE.md</a>
+        <hr>
+        <ul>
+          <li>Titanium Studio / SDK 버전</li>
+          <li>Dashboard 설정 상태</li>
+          <li>ti cli, tishadow, gittio 버전</li>
+          <li>git 명령어</li>
+        </ul>
       </section>
       <section data-bespoke-state="emphatic">
         <h2>강좌 내용</h2>
@@ -56,8 +67,13 @@
           <li>App - 회원가입/로그인</li>
           <li>App - 글목록</li>
           <li>App - 글작성</li>
-          <li>App - 사진 업로드</li>
+          <li>App - 사진 업로드 or 댓글 작성</li>
         </ol>
+      </section>
+      <section data-bespoke-state="reveal"><span class="small_title">시작하기에 앞서</span>
+        <h2>Titanium 동작 방식의 이해</h2>
+        <h3>기본편</h3>
+        <p>keynote로 진행 - 16~22page</p><a href="http://www.slideshare.net/yomybaby/tidev-meetup-in-seoul-201308" target="_blank">Slideshare 버전 보기</a>
       </section>
       <section data-bespoke-state="reveal">
         <h2>1Javascript의 이해</h2>
@@ -169,17 +185,10 @@ myFun(1,2,'333','Ti');
       <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 9/11</span>
         <h2>Hoisting</h2>
         <p class="small_font">함수 선언문 먼저 해석하고 Excuete context에 추가</p>
-        <pre><code class="language-javascript">var is_android = true;
-if(is_android) {
-  function foo() {
-    console.log('I am Android'); 
-  } 
-} else { 
-  function foo() {
+        <pre><code class="language-javascript">foo();
+function foo() {
     console.log('I am NOT Android'); 
-  }
-}
-foo();</code></pre><a data-bespoke-run>Run!</a>
+}</code></pre><a data-bespoke-run>Run!</a>
       </section>
       <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 10/11</span>
         <h2>클로저</h2>
@@ -213,22 +222,22 @@ outerFn();</code></pre><a data-bespoke-run>Run!</a>
       <section data-bespoke-state="emphatic"><span class="small_title">[Appendix - 실습준비]</span>
         <h2>실습 준비</h2>
         <ul class="lecture_list">
-          <li>Titanium Studio에서 myHelloTi 프로젝트 생성 </li>
+          <li>Titanium Studio에서 <strong>'myHelloTi'</strong> 프로젝트 생성 </li>
           <li>터미널에서 workspace 폴더로 이동</li>
-          <li>git clone git@github.com:yomybaby/HelloTi.git</li>
+          <li>git clone https://github.com/yomybaby/HelloTi.git</li>
           <li>cp -R myHelloTi/* HelloTi/</li>
           <li>rm -R myHelloTi</li>
           <li>mv HelloTi myHelloTi</li>
           <li>cd myHelloTi</li>
           <li>git checkout v.start --force</li>
-          <li>(ios) <b>ti build -p ios --tishadow</b><br>(android) <b>ti build -p android --device-id "Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280" --tishadow</b></li>
+          <li>(ios) <b>ti build -p ios --tishadow</b><br>(android) <b>ti build -p android --device-id "Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280" --shadow</b></li>
         </ul>
       </section>
       <section data-bespoke-state="emphatic"><span class="small_title">[Appendix - 실습준비]</span>
         <h2>iOS, Android 동시에 확인하려면</h2>
         <ul class="lecture_list">
           <li>ti build -p ios --tishadow</li>
-          <li>ti build -p android --device-id "Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280" --tishadow</li>
+          <li>ti build -p android --device-id "Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280" --shadow</li>
           <li>ts server</li>
           <li>ts @ run -u</li>
           <li>app 재실행</li>
@@ -313,6 +322,9 @@ win.open();</code></pre>
         <p>시각적 요소, 특정 기능/속성을 가지고 있음. View를 상속받음.</p><span class="medium_font gray">slider, button, label, switch..</span>
       </section>
       <section data-bespoke-state="reveal">
+        <h4>ti config genymotion.enabled true</h4>
+      </section>
+      <section data-bespoke-state="reveal">
         <h2>3. Titanium UI - Alloy 중심으로 실습</h2>
         <ul>
           <li>Allo MVC Framework란?</li>
@@ -378,13 +390,26 @@ win.open();</code></pre>
       <section data-bespoke-state="emphatic"><span class="small_title">Titanium UI - Alloy Widget과 모듈</span>
         <h2>Alloy Widget과 Module</h2>
         <ul>
-          <li>기본사용법</li>
-          <li><a href="http://gitt.io/cli" target="_blank">gitt.io 이용법</a></li>
+          <li>Alloy Widget -<a href="http://alloylove.com" target="_blank">alloylove.com</a></li>
+          <li>Titanium Moduel -<a href="http://marketplace.appcelerator.com" target="_blank">marketplace.appcelerator.com</a></li>
+        </ul>
+        <hr>
+        <p class="bullet"><b>종류가 많아서 좋지만 설정이 번거럽네요.ㅠ</b></p>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">Titanium UI - Alloy Widget과 모듈</span>
+        <h2><a href="http://gitt.io/cli" target="_blank">gitt.io</a>- Alloy Widget과 Module을 한방</h2>
+        <ul>
+          <li>Widget 실습 - <a href="http://gitt.io/component/toasty" target="_blank">toasty</a></li>
         </ul>
       </section>
-      <section data-bespoke-state="reveal">
-        <h2>4. Titanium 동작 방식의 이해</h2>
-        <p>keynote로 진행</p><a href="http://www.slideshare.net/yomybaby/tidev-meetup-in-seoul-201308" target="_blank">Slideshare 버전 보기</a>
+      <section data-bespoke-state="emphatic">
+        <h2>오늘은 개념 잡는 날</h2>
+        <h2>궁금하신 점?</h2>
+        <h3>내일은 앱 만드는 날</h3>
+      </section>
+      <section data-bespoke-state="success">
+        <h1>Thanks</h1>
+        <h2>내일 만나요~</h2>
       </section>
     </article>
     <script src="scripts/scripts.js"></script>
