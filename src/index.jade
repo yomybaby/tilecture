@@ -12,8 +12,52 @@ html
     link(rel='stylesheet', type='text/css', href='styles/ti.css')
     // endbuild
   body
-
     article#main-article
+
+      section(data-bespoke-state='reveal')
+        h2 링크 모음
+        a(href="http://docs.appcelerator.com/backbone/0.9.2/", target="_blank") Bacbkone 0.9.2
+        br
+        a(href="http://my.appcelerator.com/apps", target="_blank") my Apps
+        br
+        a(href="https://raw2.github.com/yomybaby/ci.alloy.adapter.two/master/app/assets/alloy/sync/acs.js", target="_blank") ACS Adapter
+
+        pre.small_font
+          code.language-javascript.
+             "adapter": {
+                "type": "acs",
+            },
+            "settings": {
+                "object_name": "places", 
+                "object_method": "Places"
+            }
+        pre.small_font
+          code.language-javascript.
+            var AG = Alloy.Globals;
+            AG.Cloud = require('ti.cloud');
+
+            AG.Cloud.Users.login({
+                login: 'admin',
+                password: 'admin'
+            }, function (e) {
+                if (e.success) {
+                    var user = e.users[0];
+                    alert('Success:\n' +
+                        'id: ' + user.id + '\n' +
+                        'sessionId: ' + AG.Cloud.sessionId + '\n' +
+                        'first name: ' + user.first_name + '\n' +
+                        'last name: ' + user.last_name);
+                } else {
+                    alert('Error:\n' +
+                        ((e.error && e.message) || JSON.stringify(e)));
+                }
+            });
+
+
+      section(data-bespoke-state='reveal')
+        h3 git fetch --all
+        h3 git checkout 20140219 --force
+
       section(data-bespoke-state='reveal')
         h1 Hello Titanium
         h3 타이타늄 시작하기
@@ -48,6 +92,12 @@ html
         h2 Titanium 설정 하셨나요?
         a(href="https://github.com/yomybaby/TiStudy/blob/master/SETTING_GUIDE.md", target="_blank")
           | https://github.com/yomybaby/TiStudy/blob/master/SETTING_GUIDE.md
+        hr
+        ul
+          li Titanium Studio / SDK 버전
+          li Dashboard 설정 상태
+          li ti cli, tishadow, gittio 버전
+          li git 명령어
       section(data-bespoke-state='emphatic')
         h2 강좌 내용
         h3 첫째날 - 타이타늄의 이해
@@ -233,17 +283,10 @@ html
         p.small_font 함수 선언문 먼저 해석하고 Excuete context에 추가
         pre
           code.language-javascript.
-            var is_android = true;
-            if(is_android) {
-              function foo() {
-                console.log('I am Android'); 
-              } 
-            } else { 
-              function foo() {
-                console.log('I am NOT Android'); 
-              }
-            }
             foo();
+            function foo() {
+                console.log('I am NOT Android'); 
+            }
         a(data-bespoke-run)
           | Run!
 
@@ -295,13 +338,19 @@ html
           li 실습용 github 저장소 설정하기
           li tishadow 확인하기
 
+      section(data-spoke-state="emphatic")
+        h3 ti config genymotion.enabled true
+        p genymotion emulator를 titanium에서 사용하려면 한번 실행!
+
       section(data-bespoke-state='emphatic')
         span.small_title [Appendix - 실습준비]
         h2 실습 준비
         ul.lecture_list
-          li Titanium Studio에서 myHelloTi 프로젝트 생성 
+          li Titanium Studio에서 
+            strong 'myHelloTi'
+            |  프로젝트 생성 
           li 터미널에서 workspace 폴더로 이동
-          li git clone git@github.com:yomybaby/HelloTi.git
+          li git clone https://github.com/yomybaby/HelloTi.git
           li cp -R myHelloTi/* HelloTi/
           li rm -R myHelloTi
           li mv HelloTi myHelloTi
@@ -312,14 +361,14 @@ html
             b ti build -p ios --tishadow
             br
             | (android) 
-            b ti build -p android --device-id "Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280" --tishadow
+            b ti build -p android --device-id "Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280" --shadow
 
       section(data-bespoke-state='emphatic')
         span.small_title [Appendix - 실습준비]
         h2 iOS, Android 동시에 확인하려면
         ul.lecture_list
           li ti build -p ios --tishadow
-          li ti build -p android --device-id "Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280" --tishadow
+          li ti build -p android --device-id "Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280" --shadow
           li ts server
           li ts @ run -u
           li app 재실행
