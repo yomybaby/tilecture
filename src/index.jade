@@ -11,53 +11,12 @@ html
     link(rel='stylesheet', type='text/css', href='styles/main.css')
     link(rel='stylesheet', type='text/css', href='styles/ti.css')
     // endbuild
+
+  // TODO : 조금 욕심 내기
+  // 적절한 font 찾기
+  // 코드가 잘보이도록 테마 변경 (열악한 프로젝터 환경도 상관없도록)
   body
     article#main-article
-
-      section(data-bespoke-state='reveal')
-        h2 링크 모음
-        a(href="http://docs.appcelerator.com/backbone/0.9.2/", target="_blank") Bacbkone 0.9.2
-        br
-        a(href="http://my.appcelerator.com/apps", target="_blank") my Apps
-        br
-        a(href="https://raw2.github.com/yomybaby/ci.alloy.adapter.two/master/app/assets/alloy/sync/acs.js", target="_blank") ACS Adapter
-
-        pre.small_font
-          code.language-javascript.
-             "adapter": {
-                "type": "acs",
-            },
-            "settings": {
-                "object_name": "places", 
-                "object_method": "Places"
-            }
-        pre.small_font
-          code.language-javascript.
-            var AG = Alloy.Globals;
-            AG.Cloud = require('ti.cloud');
-
-            AG.Cloud.Users.login({
-                login: 'admin',
-                password: 'admin'
-            }, function (e) {
-                if (e.success) {
-                    var user = e.users[0];
-                    alert('Success:\n' +
-                        'id: ' + user.id + '\n' +
-                        'sessionId: ' + AG.Cloud.sessionId + '\n' +
-                        'first name: ' + user.first_name + '\n' +
-                        'last name: ' + user.last_name);
-                } else {
-                    alert('Error:\n' +
-                        ((e.error && e.message) || JSON.stringify(e)));
-                }
-            });
-
-
-      section(data-bespoke-state='reveal')
-        h3 git fetch --all
-        h3 git checkout 20140219 --force
-
       section(data-bespoke-state='reveal')
         h1 Hello Titanium
         h3 타이타늄 시작하기
@@ -88,16 +47,7 @@ html
           li 수업을 통해 알고 싶은 것,
           li 만들려고 하는 앱,
           li 하고 싶은 말 (아무거나^^)
-      section(data-bespoke-state='emphatic')
-        h2 Titanium 설정 하셨나요?
-        a(href="https://github.com/yomybaby/TiStudy/blob/master/SETTING_GUIDE.md", target="_blank")
-          | https://github.com/yomybaby/TiStudy/blob/master/SETTING_GUIDE.md
-        hr
-        ul
-          li Titanium Studio / SDK 버전
-          li Dashboard 설정 상태
-          li ti cli, tishadow, gittio 버전
-          li git 명령어
+      
       section(data-bespoke-state='emphatic')
         h2 강좌 내용
         h3 첫째날 - 타이타늄의 이해
@@ -248,15 +198,10 @@ html
       section(data-bespoke-state='emphatic')
         span.small_title= makeJsTitle()
         h2 this
+        // TODO: this 예제 부적잘 수정 필요
         pre
           code.language-javascript.
-            var obj = {
-                name : 'MyObject'
-            };
-            var a = 'name';
-            console.log(obj.name);
-            console.log(obj["name"]);
-            console.log(obj[a]);
+           
         a(data-bespoke-run)
           | Run!
       
@@ -330,6 +275,21 @@ html
 
       // !!!!!!!!!!!!!!!!!!!!!
       // 환경 설정 관련 부분 ---- 시작
+      // 환경 설정을 따로 독립적인 자료로 step by step ??
+      // 아니면 os별로 다르게 구성
+      section(data-bespoke-state='emphatic')
+        h2 Titanium 설정 하셨나요?
+        a(href="https://github.com/yomybaby/TiStudy/blob/master/SETTING_GUIDE.md", target="_blank")
+          | https://github.com/yomybaby/TiStudy/blob/master/SETTING_GUIDE.md
+        hr
+        // TODO : 강의시에 필요한 명령어와 버전명 확인하는 것 필요
+        // 혹은 한꺼번에 설치할 grunt도 괜찮을 듯..
+        ul
+          li Titanium Studio / SDK 버전
+          li Dashboard 설정 상태
+          li ti cli, tishadow, gittio 버전
+          li git 명령어
+
       section(data-bespoke-state='reveal')
         span.small_title [Appendix - 실습준비]
         h2 잠깐! 타이타늄 환경 설정 점검
@@ -340,8 +300,13 @@ html
 
       section(data-spoke-state="emphatic")
         h3 ti config genymotion.enabled true
-        p genymotion emulator를 titanium에서 사용하려면 한번 실행!
+        p genymotion emulator를 titanium에서 사용하려면 한번 실행!section(data-spoke-state="emphatic")
+      
+      section(data-spoke-state="emphatic")
+        h3 ts express
+        p ti cli에서 --shadow 옶션이 가능하도록 hook 설치
 
+      // TODO : 여기서는 tiapp.xml과 menifest를 복사하게 하는 편이 나을 것 같다.
       section(data-bespoke-state='emphatic')
         span.small_title [Appendix - 실습준비]
         h2 실습 준비
@@ -351,9 +316,9 @@ html
             |  프로젝트 생성 
           li 터미널에서 workspace 폴더로 이동
           li git clone https://github.com/yomybaby/HelloTi.git
-          li cp -R myHelloTi/* HelloTi/
-          li rm -R myHelloTi
-          li mv HelloTi myHelloTi
+          li myHelloTi폴더에서 tiapp.xml 과 menifest 파일을 HelloTi로 복사
+          li myHelloTi 삭제
+          li helloTi 폴더명을 myHelloTi로 변경
           li cd myHelloTi
           li git checkout v.start --force
           li
@@ -528,10 +493,11 @@ html
         h2 sibiling 간의 순서
         ul
           li 기본동작
-          li zIndex 지정
+          li zIndex 지정ㄹ
+      //TODO : 위에서 다룬 내용을 바탕으로 좀 자주 쓰는 레이아웃 및 사이즈를 고려하여 view
 
       section(data-bespoke-state='emphatic')
-        span.small_title Titanium UI - Event
+        span.small_title Titanium UI - Event를
         h2 Event 다루기
         ul
           li UI 컨트롤(proxy)의 이벤트
@@ -561,6 +527,7 @@ html
         hr
         p.bullet 
           b 종류가 많아서 좋지만 설정이 번거럽네요.ㅠ
+
       section(data-bespoke-state='emphatic')
         span.small_title Titanium UI - Alloy Widget과 모듈
         h2
@@ -580,6 +547,15 @@ html
         h1 Thanks
         h2 내일 만나요~
 
+      // TODO : 고민-MVC에 대한 이야기를 따로 한꼭지??
+
+      section(data-bespoke-state='reveal')
+        h2 링크 모음
+        a(href="http://docs.appcelerator.com/backbone/0.9.2/", target="_blank") Bacbkone 0.9.2 문서
+        br
+        a(href="http://my.appcelerator.com/apps", target="_blank") ACS my Apps 목록 보기
+        br
+        a(href="https://raw2.github.com/yomybaby/ci.alloy.adapter.two/master/app/assets/alloy/sync/acs.js", target="_blank") ACS Adapter
 
 
     // build:js scripts/scripts.js
