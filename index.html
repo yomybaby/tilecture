@@ -6,12 +6,11 @@
     <title>Hello Ti</title>
     <link rel="stylesheet" href="styles/styles.css"/>
   </head>
+  <!-- TODO : 조금 욕심 내기-->
+  <!-- 적절한 font 찾기-->
+  <!-- 코드가 잘보이도록 테마 변경 (열악한 프로젝터 환경도 상관없도록)-->
   <body>
     <article id="main-article">
-      <section data-bespoke-state="reveal">
-        <h3>git fetch --all</h3>
-        <h3>git checkout 20140219 --force</h3>
-      </section>
       <section data-bespoke-state="reveal">
         <h1>Hello Titanium</h1>
         <h3>타이타늄 시작하기</h3>
@@ -35,16 +34,6 @@
           <li>수업을 통해 알고 싶은 것,</li>
           <li>만들려고 하는 앱,</li>
           <li>하고 싶은 말 (아무거나^^)</li>
-        </ul>
-      </section>
-      <section data-bespoke-state="emphatic">
-        <h2>Titanium 설정 하셨나요?</h2><a href="https://github.com/yomybaby/TiStudy/blob/master/SETTING_GUIDE.md" target="_blank">https://github.com/yomybaby/TiStudy/blob/master/SETTING_GUIDE.md</a>
-        <hr>
-        <ul>
-          <li>Titanium Studio / SDK 버전</li>
-          <li>Dashboard 설정 상태</li>
-          <li>ti cli, tishadow, gittio 버전</li>
-          <li>git 명령어</li>
         </ul>
       </section>
       <section data-bespoke-state="emphatic">
@@ -162,13 +151,11 @@ retFun();</code></pre><a data-bespoke-run>Run!</a>
       </section>
       <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 7/11</span>
         <h2>this</h2>
-        <pre><code class="language-javascript">var obj = {
-    name : 'MyObject'
-};
-var a = 'name';
-console.log(obj.name);
-console.log(obj["name"]);
-console.log(obj[a]);</code></pre><a data-bespoke-run>Run!</a>
+        <pre><code class="language-javascript">function fn(){
+  console.log(this);
+}
+fn();
+new fn();</code></pre><a data-bespoke-run>Run!</a>
       </section>
       <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 8/11</span>
         <h2>arguments</h2>
@@ -211,6 +198,20 @@ outerFn();</code></pre><a data-bespoke-run>Run!</a>
       </section>
       <!-- !!!!!!!!!!!!!!!!!!!!!-->
       <!-- 환경 설정 관련 부분 ---- 시작-->
+      <!-- 환경 설정을 따로 독립적인 자료로 step by step ??-->
+      <!-- 아니면 os별로 다르게 구성-->
+      <section data-bespoke-state="emphatic">
+        <h2>Titanium 설정 하셨나요?</h2><a href="https://github.com/yomybaby/TiStudy/blob/master/SETTING_GUIDE.md" target="_blank">https://github.com/yomybaby/TiStudy/blob/master/SETTING_GUIDE.md</a>
+        <hr>
+        <!-- TODO : 강의시에 필요한 명령어와 버전명 확인하는 것 필요-->
+        <!-- 혹은 한꺼번에 설치할 grunt도 괜찮을 듯..-->
+        <ul>
+          <li>Titanium Studio / SDK 버전</li>
+          <li>Dashboard 설정 상태</li>
+          <li>ti cli, tishadow, gittio 버전</li>
+          <li>git 명령어</li>
+        </ul>
+      </section>
       <section data-bespoke-state="reveal"><span class="small_title">[Appendix - 실습준비]</span>
         <h2>잠깐! 타이타늄 환경 설정 점검</h2>
         <ul>
@@ -219,15 +220,24 @@ outerFn();</code></pre><a data-bespoke-run>Run!</a>
           <li>tishadow 확인하기</li>
         </ul>
       </section>
+      <section data-spoke-state="emphatic">
+        <h3>ti config genymotion.enabled true</h3>
+        <p>genymotion emulator를 titanium에서 사용하려면 한번 실행!section(data-spoke-state="emphatic")</p>
+      </section>
+      <section data-spoke-state="emphatic">
+        <h3>ts express</h3>
+        <p>ti cli에서 --shadow 옶션이 가능하도록 hook 설치</p>
+      </section>
+      <!-- TODO : 여기서는 tiapp.xml과 menifest를 복사하게 하는 편이 나을 것 같다.-->
       <section data-bespoke-state="emphatic"><span class="small_title">[Appendix - 실습준비]</span>
         <h2>실습 준비</h2>
         <ul class="lecture_list">
           <li>Titanium Studio에서 <strong>'myHelloTi'</strong> 프로젝트 생성 </li>
           <li>터미널에서 workspace 폴더로 이동</li>
           <li>git clone https://github.com/yomybaby/HelloTi.git</li>
-          <li>cp -R myHelloTi/* HelloTi/</li>
-          <li>rm -R myHelloTi</li>
-          <li>mv HelloTi myHelloTi</li>
+          <li>myHelloTi폴더에서 tiapp.xml 과 menifest 파일을 HelloTi로 복사</li>
+          <li>myHelloTi 삭제</li>
+          <li>helloTi 폴더명을 myHelloTi로 변경</li>
           <li>cd myHelloTi</li>
           <li>git checkout v.start --force</li>
           <li>(ios) <b>ti build -p ios --tishadow</b><br>(android) <b>ti build -p android --device-id "Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280" --shadow</b></li>
@@ -322,9 +332,6 @@ win.open();</code></pre>
         <p>시각적 요소, 특정 기능/속성을 가지고 있음. View를 상속받음.</p><span class="medium_font gray">slider, button, label, switch..</span>
       </section>
       <section data-bespoke-state="reveal">
-        <h4>ti config genymotion.enabled true</h4>
-      </section>
-      <section data-bespoke-state="reveal">
         <h2>3. Titanium UI - Alloy 중심으로 실습</h2>
         <ul>
           <li>Allo MVC Framework란?</li>
@@ -366,10 +373,11 @@ win.open();</code></pre>
         <h2>sibiling 간의 순서</h2>
         <ul>
           <li>기본동작</li>
-          <li>zIndex 지정</li>
+          <li>zIndex 지정ㄹ</li>
         </ul>
       </section>
-      <section data-bespoke-state="emphatic"><span class="small_title">Titanium UI - Event</span>
+      <!--TODO : 위에서 다룬 내용을 바탕으로 좀 자주 쓰는 레이아웃 및 사이즈를 고려하여 view-->
+      <section data-bespoke-state="emphatic"><span class="small_title">Titanium UI - Event를</span>
         <h2>Event 다루기</h2>
         <ul>
           <li>UI 컨트롤(proxy)의 이벤트</li>
@@ -410,6 +418,10 @@ win.open();</code></pre>
       <section data-bespoke-state="success">
         <h1>Thanks</h1>
         <h2>내일 만나요~</h2>
+      </section>
+      <!-- TODO : 고민-MVC에 대한 이야기를 따로 한꼭지??-->
+      <section data-bespoke-state="reveal">
+        <h2>링크 모음</h2><a href="http://docs.appcelerator.com/backbone/0.9.2/" target="_blank">Bacbkone 0.9.2 문서</a><br><a href="http://my.appcelerator.com/apps" target="_blank">ACS my Apps 목록 보기</a><br><a href="https://raw2.github.com/yomybaby/ci.alloy.adapter.two/master/app/assets/alloy/sync/acs.js" target="_blank">ACS Adapter</a>
       </section>
     </article>
     <script src="scripts/scripts.js"></script>
