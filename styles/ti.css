@@ -2,6 +2,10 @@
   width: 70px;
   height: 70px;
 }
+.big_badge {
+  width: 150px;
+  height: 150px;
+}
 body {
   font-family: 'AppleSDGothicNeo-UltraLight';
   font-weight: normal;
@@ -14,12 +18,22 @@ span.small_title {
 }
 .lecture_list {
   text-align: left;
+  width: 300px !important;
 }
 .small_font {
   font-size: 12px;
 }
+.very_small_font {
+  font-size: 9px;
+}
+.no_padding {
+  padding: 0 !important;
+}
 .medium_font {
   font-size: 15px;
+}
+.force_gray_font {
+  color: #808080 !important;
 }
 .gray {
   color: #888;
@@ -87,4 +101,102 @@ pre.right {
   -moz-filter: grayscale(0.5) brightness(0.4);
   filter: grayscale(0.5) brightness(0.4);
   background-image: url("http://www.thedisabledcubicle.com/wp-content/uploads/2012/11/apollorockygif1.gif");
+}
+.hello section {
+  background-color: transparent;
+  color: #fff;
+}
+.background {
+  display: block;
+  position: absolute;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  content: "";
+  -webkit-filter: grayscale(0.3) brightness(0.3);
+  -moz-filter: grayscale(0.3) brightness(0.3);
+  filter: grayscale(0.3) brightness(0.3);
+  z-index: -1000;
+  width: 20%;
+  height: 20%;
+  top: 50%;
+  left: 50%;
+  margin-top: -5%;
+  margin-left: -10%;
+  -webkit-transform: scale(5.5);
+  -moz-transform: scale(5.5);
+  -ms-transform: scale(5.5);
+  -o-transform: scale(5.5);
+}
+.hello .background {
+  background-image: url("http://stream1.gifsoup.com/view/405055/oh-hello-o.gif");
+}
+.startline .background {
+  background-image: url("http://stream1.gifsoup.com/view/23915/mx-start-by-j89-o.gif");
+}
+.startline section {
+  background-color: transparent;
+  color: #fff;
+}
+.conversation .background {
+  background-image: url("http://stream1.gifsoup.com/view3/2335654/conversation-o.gif");
+}
+.conversation section {
+  background-color: transparent;
+  color: #fff;
+}
+p {
+  margin-left: 0;
+  margin-right: 0;
+}
+code.small {
+  font-size: 13px;
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  padding: 1px 3px;
+}
+pre.dark {
+  -webkit-background-clip: border-box;
+  -webkit-background-origin: padding-box;
+  -webkit-background-size: auto;
+  -webkit-hyphens: none;
+  background-attachment: scroll;
+  -webkit-background-clip: border;
+  -moz-background-clip: border;
+  background-clip: border-box;
+  background-color: #2d2d2d;
+  background-image: none;
+  -webkit-background-origin: padding;
+  -moz-background-origin: padding;
+  background-origin: padding-box;
+  -webkit-background-size: auto;
+  -moz-background-size: auto;
+  background-size: auto;
+  border-bottom-left-radius: 7.981956481933594px;
+  border-bottom-right-radius: 7.981956481933594px;
+  border-top-left-radius: 7.981956481933594px;
+  border-top-right-radius: 7.981956481933594px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #ccc;
+  direction: ltr;
+  display: block;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  font-weight: normal;
+  margin-bottom: 4.5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 4.5px;
+  overflow-x: auto;
+  overflow-y: auto;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  text-align: left;
+  white-space: pre;
+  word-break: normal;
+  word-spacing: 0px;
 }

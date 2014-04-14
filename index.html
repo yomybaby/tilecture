@@ -14,7 +14,7 @@
       <section data-bespoke-state="reveal">
         <h1>Hello Titanium</h1>
         <h3>타이타늄 시작하기</h3>
-        <h5>rev.201402</h5>
+        <h5>rev.201404</h5>
       </section>
       <section data-bespoke-state="emphatic">
         <h2>이종은</h2>
@@ -27,14 +27,39 @@
           <li></li>
         </ul>
       </section>
-      <section data-bespoke-state="emphatic"><span class="small_title">인사 나눠요~</span>
-        <h2>여러분은?</h2>
+      <section data-bespoke-state="hello">
+        <h2>인사 나눠요~</h2>
         <ul>
           <li>이름,</li>
           <li>수업을 통해 알고 싶은 것,</li>
           <li>만들려고 하는 앱,</li>
           <li>하고 싶은 말 (아무거나^^)</li>
         </ul>
+      </section>
+      <section data-bespoke-state="conversation"><span class="small_title">수업 진행 방식</span>
+        <h2>짝 프로그래밍?</h2>
+        <ol class="lecture_list">
+          <li>문제에 부딪히기</li>
+          <li>문제임을 인식하기</li>
+          <li>해결 방법 의논하여 시도하기</li>
+          <li>공개하여 자극 받기</li>
+        </ol>
+      </section>
+      <section data-bespoke-state="conversation"><span class="small_title">수업 진행 방식</span>
+        <h2>이렇게 해봐요!</h2>
+        <ul class="lecture_list">
+          <li>일단 보고 듣습니다.</li>
+          <li>그 다음 해봅니다.</li>
+          <li>보여주며 물어봅니다.</li>
+        </ul>
+      </section>
+      <section data-bespoke-state="emphatic"><span class="small_title">수업 진행 방식</span>
+        <h2>강의 자료</h2>
+        <h3><a href="http://yomybaby.github.io/TiLecture" target="_blank">http://yomybaby.github.io/TiLecture</a><br><a href="/.DS_Store">http://192.168.x.x</a></h3>
+        <h2>Copy & Paste</h2>
+        <h3><a href="/#copy">http://192.168.x.x/#copy</a></h3>
+        <h2>Link</h2>
+        <h3><a href="/#link">http://192.168.x.x/#link</a></h3>
       </section>
       <section data-bespoke-state="emphatic">
         <h2>강좌 내용</h2>
@@ -108,12 +133,12 @@ console.log(p4 === p3);</code></pre><a data-bespoke-run>Run!</a>
       </section>
       <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 4/11</span>
         <h2>복합 객체의 비교</h2>
-        <pre><code class="language-javascript">var objectFoo = { smae : 'same' };
-var objectBar = { smae : 'same' };
+        <pre><code class="language-javascript">var objectFoo = { name : 'jong' };
+var objectBar = { name : 'jong' };
 
 console.log( objectFoo === objectBar );
 
-var objectA = { name : 'name' };
+var objectA = { name : 'ti' };
 var objectB = objectA;
 
 console.log( objectA === objectB );</code></pre><a data-bespoke-run>Run!</a>
@@ -155,7 +180,7 @@ retFun();</code></pre><a data-bespoke-run>Run!</a>
   console.log(this);
 }
 fn();
-new fn();</code></pre><a data-bespoke-run>Run!</a>
+new fn();</code></pre><a data-bespoke-run>Run!</a><a href="http://davidql.github.io/scope_talk/#/" target="_blank">this와 scope 참고 자료</a>
       </section>
       <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 8/11</span>
         <h2>arguments</h2>
@@ -182,13 +207,15 @@ function foo() {
         <pre><code class="language-javascript">var z = "global";
 function outerFn() {
     var z = "local";
-    function innerFn()
+    return function innerFn()
     {
-            alert(z);
+            console.log(z);
     }
     innerFn();
 }
-outerFn();</code></pre><a data-bespoke-run>Run!</a>
+var f = outerFn();
+f();
+console.log(z);</code></pre><a data-bespoke-run>Run!</a>
       </section>
       <section data-bespoke-state="emphatic"><span class="small_title">Javascript의 이해 11/11</span>
         <h2>Tip</h2>
@@ -205,8 +232,9 @@ outerFn();</code></pre><a data-bespoke-run>Run!</a>
         <hr>
         <!-- TODO : 강의시에 필요한 명령어와 버전명 확인하는 것 필요-->
         <!-- 혹은 한꺼번에 설치할 grunt도 괜찮을 듯..-->
-        <ul>
-          <li>Titanium Studio / SDK 버전</li>
+        <ul class="lecture_list">
+          <li>Titanium Studio</li>
+          <li>Titanium SDK 버전 </li>
           <li>Dashboard 설정 상태</li>
           <li>ti cli, tishadow, gittio 버전</li>
           <li>git 명령어</li>
@@ -221,27 +249,32 @@ outerFn();</code></pre><a data-bespoke-run>Run!</a>
         </ul>
       </section>
       <section data-spoke-state="emphatic">
-        <h3>ti config genymotion.enabled true</h3>
-        <p>genymotion emulator를 titanium에서 사용하려면 한번 실행!</p>
+        <h2> Gennymotion</h2>
+        <pre class="dark"><code class="language-bash">ti config genymotion.enabled true</code></pre>
+        <ol class="lecture_list">
+          <li>genymotion emulator를 titanium에서 사용하려면 위 명령어 한번 실행하여 설정</li>
+          <li>Genymotion에 Google App 설치하기<a href="gapps-jb-20130813-signed.zip" target="_blank">Google App 다운로드</a><span>,  </span><a href="http://tidev.kr/t/genymotion-google-api-app/346" target="_blank">설치 관련 글</a></li>
+        </ol>
       </section>
       <section data-spoke-state="emphatic">
-        <h3>ts express</h3>
-        <p>ti cli에서 --shadow 옶션이 가능하도록 hook 설치</p>
+        <pre><code class="language-javascript">ts express   </code></pre>
+        <p>ti cli에서 --shadow 옵션이 가능하도록 hook 설치</p>
       </section>
       <!-- TODO : 여기서는 tiapp.xml과 menifest를 복사하게 하는 편이 나을 것 같다.-->
       <section data-bespoke-state="emphatic"><span class="small_title">[Appendix - 실습준비]</span>
         <h2>실습 준비</h2>
-        <ul class="lecture_list">
-          <li>Titanium Studio에서 <strong>'myHelloTi'</strong> 프로젝트 생성 </li>
-          <li>터미널에서 workspace 폴더로 이동</li>
-          <li>git clone https://github.com/yomybaby/HelloTi.git</li>
-          <li>myHelloTi폴더에서 tiapp.xml 과 menifest 파일을 HelloTi로 복사</li>
-          <li>myHelloTi 삭제</li>
-          <li>helloTi 폴더명을 myHelloTi로 변경</li>
-          <li>cd myHelloTi</li>
-          <li>git checkout v.start --force</li>
-          <li>(ios) <b>ti build -p ios --tishadow</b><br>(android) <b>ti build -p android --device-id "Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280" --shadow</b></li>
-        </ul>
+        <p>새 프로젝트를 생성하고 내용을 github에서 실습용 저장소의 내용으로 변경합니다.</p>
+        <pre class="small_font dark"><code class="language-bash">ti create --platforms android --id net.bloter.myhelloti --name myHelloTi -d .
+git clone --no-checkout https://github.com/yomybaby/HelloTi.git
+mv HelloTi/.git myHelloTi/
+rmdir HelloTi/
+cd myHelloTi/
+git reset --hard v.start
+</code></pre>
+        <p>완료 후 Titanium Studio에서 import 하고 iphone 개발의 경우 tiapp.xml에서 iphone 체크</p>
+        <pre class="very_small_font dark"><code class="language-bash">ti build -p ios --tishadow
+ti build -p android --device-id "Galaxy Nexus - 4.1.1 - with Google Apps - API 16 - 720x1280" --shadow
+</code></pre>
       </section>
       <section data-bespoke-state="emphatic"><span class="small_title">[Appendix - 실습준비]</span>
         <h2>iOS, Android 동시에 확인하려면</h2>
@@ -253,9 +286,9 @@ outerFn();</code></pre><a data-bespoke-run>Run!</a>
           <li>app 재실행</li>
         </ul>
       </section>
-      <section data-bespoke-state="reveal"><span class="small_title">[Appendix - 실습준비]</span>
-        <h1>준비완료!</h1>
-        <h2>이제부터 Titanium 시작입니다.</h2>
+      <section data-bespoke-state="startline"><span class="small_title">[Appendix - 실습준비]</span>
+        <h2>준비완료! 출발!</h2>
+        <p>이제부터 Titanium 시작입니다.</p>
       </section>
       <!-- 환경 설정 관련 부분 ---  끝-->
       <!-- !!!!!!!!!!!!!!!!!!!!!-->
@@ -420,7 +453,8 @@ win.open();</code></pre>
         <h2>내일 만나요~</h2>
       </section>
       <!-- TODO : 고민-MVC에 대한 이야기를 따로 한꼭지??-->
-      <section data-bespoke-state="reveal">
+      <section data-bespoke-state="reveal" data-bespoke-hash="copy"><code style="text-algin=left" class="language-javascript">var a=3;</code></section>
+      <section data-bespoke-state="reveal" data-bespoke-hash="link">
         <h2>링크 모음</h2><a href="http://docs.appcelerator.com/backbone/0.9.2/" target="_blank">Bacbkone 0.9.2 문서</a><br><a href="http://my.appcelerator.com/apps" target="_blank">ACS my Apps 목록 보기</a><br><a href="https://raw2.github.com/yomybaby/ci.alloy.adapter.two/master/app/assets/alloy/sync/acs.js" target="_blank">ACS Adapter</a>
       </section>
     </article>
