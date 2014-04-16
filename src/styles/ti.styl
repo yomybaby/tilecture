@@ -10,6 +10,10 @@
   width : 70px
   height : 70px
 
+.big_badge
+  width : 150px
+  height : 150px
+
 body
   font-family : 'AppleSDGothicNeo-UltraLight'
   font-weight : normal
@@ -22,13 +26,23 @@ span.small_title
   font-size: 10px
 
 .lecture_list
- 	text-align:left
+  text-align:left
+  width : 300px !important
 
 .small_font
-	font-size : 12px
+  font-size : 12px
+
+.very_small_font
+  font-size : 9px
+
+.no_padding
+  padding : 0 !important
 
 .medium_font
   font-size : 15px
+
+.force_gray_font
+  color : gray !important
 
 .gray
   color : #888
@@ -44,11 +58,11 @@ pre.right
   background-color: #282a2d
 
 .reveal section
- 	background-color:transparent
- 	color : white
+  background-color:transparent
+  color : white
 
 .reveal  section h3
- 	color : #aaa
+  color : #aaa
 
 .background
   position: absolute
@@ -90,4 +104,90 @@ pre.right
   filter: grayscale(0.5) brightness(0.4);
   background-image: url("http://www.thedisabledcubicle.com/wp-content/uploads/2012/11/apollorockygif1.gif");
 
+.hello section
+  background-color:transparent
+  color : white
+
+.background
+  display: block;
+  position: absolute;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  content: "";
+  -webkit-filter: grayscale(0.3) brightness(0.3);
+  -moz-filter: grayscale(0.3) brightness(0.3);
+  filter: grayscale(0.3) brightness(0.3);
+  z-index: -1000;
+  width: 20%;
+  height: 20%;
+  top: 50%;
+  left: 50%;
+  margin-top: -5%;
+  margin-left: -10%;
+  -webkit-transform: scale(5.5);
+  -moz-transform: scale(5.5);
+  -ms-transform: scale(5.5);
+  -o-transform: scale(5.5);
+
+.hello .background 
+  background-image: url("http://stream1.gifsoup.com/view/405055/oh-hello-o.gif");
+
+
+.startline .background
+  background-image: url("http://stream1.gifsoup.com/view/23915/mx-start-by-j89-o.gif");
+
+.startline section
+  background-color:transparent
+  color : white
+
+.conversation .background
+  background-image: url("http://stream1.gifsoup.com/view3/2335654/conversation-o.gif");
+
+.conversation section
+  background-color:transparent
+  color : white
   
+p
+  margin-left:0
+  margin-right:0
+
+code.small
+  font-size : 13px
+  background-color: #ecf0f1
+  color : #2c3e50
+  padding : 1px 3px
+
+
+pre.dark
+  -webkit-background-clip: border-box;
+  -webkit-background-origin: padding-box;
+  -webkit-background-size: auto;
+  -webkit-hyphens: none;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: rgb(45, 45, 45);
+  background-image: none;
+  background-origin: padding-box;
+  background-size: auto;
+  border-bottom-left-radius: 7.981956481933594px;
+  border-bottom-right-radius: 7.981956481933594px;
+  border-top-left-radius: 7.981956481933594px;
+  border-top-right-radius: 7.981956481933594px;
+  box-sizing: border-box;
+  color: rgb(204, 204, 204);
+  direction: ltr;
+  display: block;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  font-weight: normal;
+  margin-bottom: 4.5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 4.5px;
+  overflow-x: auto;
+  overflow-y: auto;
+  tab-size: 4;
+  text-align: left;
+  white-space: pre;
+  word-break: normal;
+  word-spacing: 0px;
